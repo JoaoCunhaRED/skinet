@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/shared/models/product';
 import { IType } from './../shared/models/productType';
 import { IBrand } from './../shared/models/brands';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -39,6 +40,10 @@ export class ShopService {
           return response.body;
         })
       )
+  }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {
