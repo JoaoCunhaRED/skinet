@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5">
     <div class="row">
         <section class="col-3">
             <ng-container *ngIf="types && brands">
@@ -32,7 +32,7 @@
                 <app-paging-header [totalCount]="totalCount" [pageNumber]="shopParams.pageNumber"
                     [pageSize]="shopParams.pageSize"></app-paging-header>
 
-                <div class="form-inline" *ngIf="products">
+                <div class="form-inline mt-2" *ngIf="products">
                     <input type="text" class="form-control mr-2" #search placeholder="Search">
                     <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
                     <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">Reset</button>

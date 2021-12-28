@@ -1,9 +1,9 @@
-import { ShopService } from './shop.service';
-import { IProduct } from '../shared/models/product';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IBrand } from '../shared/models/brands';
+import { IBrand } from '../shared/models/brand';
+import { IProduct } from '../shared/models/product';
 import { IType } from '../shared/models/productType';
 import { ShopParams } from '../shared/models/shopParams';
+import { ShopService } from './shop.service';
 
 @Component({
   selector: 'app-shop',
@@ -12,7 +12,7 @@ import { ShopParams } from '../shared/models/shopParams';
 })
 export class ShopComponent implements OnInit {
   @ViewChild('search', {static: false}) searchTerm: ElementRef;
-  products : IProduct[];
+  products: IProduct[];
   brands: IBrand[];
   types: IType[];
   shopParams = new ShopParams();
@@ -23,14 +23,14 @@ export class ShopComponent implements OnInit {
     {name: 'Price: High to low', value: 'priceDesc'},
   ]
 
-  constructor(private shopService:ShopService) { }
+  constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
     this.getProducts();
     this.getBrands();
     this.getTypes();
   }
-
+  
   getProducts() {
     this.shopService.getProducts(this.shopParams).subscribe(response => {
       this.products = response.data;
