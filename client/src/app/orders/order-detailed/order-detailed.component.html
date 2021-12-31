@@ -11,7 +11,7 @@
       <app-order-totals
         [shippingPrice]="order.shippingPrice"
         [subtotal]="order.subtotal"
-        [total]="order.total"
+        [total]="order.subtotal + order.shippingPrice"
       ></app-order-totals>
     </div>
   </div>
