@@ -33,6 +33,7 @@ export class ShopService {
         return of(this.pagination);
       }
     }
+
     let params = new HttpParams();
 
     if (this.shopParams.brandId !== 0) {
@@ -60,6 +61,7 @@ export class ShopService {
         })
       )
   }
+
   setShopParams(params: ShopParams) {
     this.shopParams = params;
   }
@@ -78,6 +80,7 @@ export class ShopService {
     if (product) {
       return of(product);
     }
+
     return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
